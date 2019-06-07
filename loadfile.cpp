@@ -4,12 +4,16 @@
 
 
 
-int main() {
+void loadfile(std::string filename) {
     struct double3{
         double x,y,z;
     };
     std::vector<double3> galaxies;
-    std::ifstream fin("LNKNLogsVelFortran_01.dat");
+    std::cout << "Enter the filename : \n";
+    std::cin >> filename;
+    
+    //std::ifstream fin("LNKNLogsVelFortran_01.dat");
+    std::ifstream fin(filename);
     while (!fin.eof()) {
         double3 gal;
         fin >> gal.x >> gal.y >> gal.z;
@@ -19,5 +23,6 @@ int main() {
     }
     fin.close();
     std::cout << "galaxies.size() = " << galaxies.size() << std::endl;
+    
     
 }
